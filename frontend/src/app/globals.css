@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #fff4ed;
+  --color-brand-100: #ffe6d5;
+  --color-brand-200: #ffc9a8;
+  --color-brand-300: #ffa470;
+  --color-brand-400: #ff8a4c;
+  --color-brand-500: #ff7a3d;
+  --color-brand-600: #f25c1f;
+  --color-brand-700: #c94414;
+
+  --color-ink-900: #16161d;
+  --color-ink-700: #3a3a46;
+  --color-ink-500: #6b6b78;
+  --color-ink-400: #9a9aa6;
+  --color-ink-300: #c9c9d2;
+  --color-ink-200: #e8e8ee;
+  --color-ink-100: #f3f3f6;
+  --color-ink-50: #f9f9fb;
+
+  --color-violet-brand: #3b2a8f;
+
+  --shadow-card: 0 1px 2px rgb(16 16 24 / 0.04), 0 8px 24px -12px rgb(16 16 24 / 0.12);
+  --shadow-float: 0 12px 32px -12px rgb(16 16 24 / 0.25);
+  --shadow-brand: 0 10px 24px -10px rgb(255 122 61 / 0.75);
+
+  --animate-blink: blink 1s steps(2, start) infinite;
+  --animate-fade-up: fade-up 0.35s ease-out both;
+  --animate-pulse-ring: pulse-ring 1.8s ease-out infinite;
+  --animate-wave: wave 2.2s ease-in-out 0.4s 1;
+
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes wave {
+    0%, 60%, 100% {
+      transform: rotate(0deg);
+    }
+    10%, 30% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgb(255 122 61 / 0.45);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgb(255 122 61 / 0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-ink-900;
+  }
+
+  ::selection {
+    background: var(--color-brand-100);
+  }
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-200) transparent;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.prose-chat {
+  @apply text-[14px] leading-relaxed text-ink-700;
+}
+.prose-chat h1,
+.prose-chat h2 {
+  @apply mt-4 mb-2 text-[16px] font-bold text-ink-900 first:mt-0;
+}
+.prose-chat h3,
+.prose-chat h4 {
+  @apply mt-3 mb-1.5 text-[14.5px] font-semibold text-ink-900;
+}
+.prose-chat p {
+  @apply my-2;
+}
+.prose-chat ul {
+  @apply my-2 list-disc space-y-1 pl-5 marker:text-brand-400;
+}
+.prose-chat ol {
+  @apply my-2 list-decimal space-y-1 pl-5 marker:text-ink-400;
+}
+.prose-chat strong {
+  @apply font-semibold text-ink-900;
+}
+.prose-chat a {
+  @apply font-medium text-brand-600 underline underline-offset-2;
+}
+.prose-chat code {
+  @apply rounded bg-ink-100 px-1 py-0.5 text-[12.5px];
+}
+.prose-chat hr {
+  @apply my-4 border-ink-200;
+}
+.prose-chat blockquote {
+  @apply my-2 border-l-2 border-brand-300 pl-3 text-ink-500;
+}
+.prose-chat table {
+  @apply my-3 w-full border-collapse overflow-hidden rounded-xl text-[13px];
+}
+.prose-chat th {
+  @apply bg-ink-50 px-3 py-2 text-left font-semibold text-ink-900;
+}
+.prose-chat td {
+  @apply border-t border-ink-100 px-3 py-2;
+}
